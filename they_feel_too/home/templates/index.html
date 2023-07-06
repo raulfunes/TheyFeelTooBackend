@@ -57,7 +57,7 @@
 
 <section id="conocelos" class="conocelos">
     <h3>Conocelos</h3>
-    {% if perms.catalog.is_admin %}
+    {% if perms.home.is_admin %}
     <div class="d-flex justify-content-center ">
         <a class="model-manage model-important" href="{% url 'animal_create' %}">Agregar Animal</a>
     </div>
@@ -67,7 +67,7 @@
         <div class="animal-card">
             <img class="card-img-top" src="{{ animal.imagen }}" alt="{{ animal.nombre }}">
             <h4 class="animal-nombre">{{animal.nombre}}</h4>
-            {% if perms.catalog.is_admin %}
+            {% if perms.home.is_admin %}
             <div class="d-flex">
                 <a class="model-manage" href="{% url 'animal_update' animal.pk %}">Actualizar</a>
                 <a class="model-manage text-danger" href="{% url 'animal_delete' animal.pk %}">Eliminar</a>
@@ -80,14 +80,14 @@
             <p class="section-title">Promedio de Vida</p>
             <p>{{animal.promedio_de_vida}}</p>
             <p class="section-title">Curiosidades</p>
-            {% if perms.catalog.is_admin %}
+            {% if perms.home.is_admin %}
             <a class="model-manage" href="{% url 'curiosidad_create' %}">Agregar</a>
             {% endif %}
             <ul>
                 {% for curiosidad in curiosidades %}
                 {% if curiosidad.animal == animal %}
                 <li class="curiosidad">{{ curiosidad.nombre }}</li>
-                {% if perms.catalog.is_admin %}
+                {% if perms.home.is_admin %}
                 <a class="model-manage" href="{% url 'curiosidad_update' curiosidad.pk %}">Actualizar</a>
                 <a class="model-manage text-danger" href="{% url 'curiosidad_delete' curiosidad.pk %}">Eliminar</a>
                 {% endif %}
@@ -105,7 +105,7 @@
 <!-- Seccion galeria -->
 <section id="galeria" class="galeria contenedor">
     <h3>Galeria</h3>
-    {% if perms.catalog.is_admin %}
+    {% if perms.home.is_admin %}
     <div class="d-flex justify-content-center ">
         <a class="model-manage model-important" href="{% url 'imagen_create' %}">Agregar Imagen</a>
     </div>
@@ -113,7 +113,7 @@
     <ul class="galeria-imagenes">
         {% for imagen in imagenes %}
         <div class="img-animal {{ imagen.estilo }}">
-            {% if perms.catalog.is_admin %}
+            {% if perms.home.is_admin %}
             <div class="d-flex img-buttons">
                 <a class="img-manage" href="{% url 'imagen_update' imagen.pk %}">
                     <i class="bi bi-pencil-fill"></i>
@@ -186,7 +186,7 @@
             </form>
         </div>
         <div class="ayuda-body">
-            {% if perms.catalog.is_admin %}
+            {% if perms.home.is_admin %}
             <div class="d-flex justify-content-start ">
                 <a class="model-manage model-important" href="{% url 'consejo_create' %}">
                     Agregar consejo
@@ -198,7 +198,7 @@
                 <li>
                     {{ consejo.nombre }}
                 </li>
-                {% if perms.catalog.is_admin %}
+                {% if perms.home.is_admin %}
                 <div class="d-flex">
                     <a class="model-manage" href="{% url 'consejo_update' consejo.pk %}">Actualizar</a>
                     <a class="model-manage text-danger" href="{% url 'consejo_delete' consejo.pk %}">Eliminar</a>

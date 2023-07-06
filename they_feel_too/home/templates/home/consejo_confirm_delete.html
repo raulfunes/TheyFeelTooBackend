@@ -1,0 +1,16 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+<div class="form-wrapper">
+    <h1>Eliminar Consejo</h1>
+
+    <p>¿Estas seguro que deseas eliminar el consejo: {{ consejo }}?</p>
+
+    <form action="" method="POST">
+        {% csrf_token %}
+        <input class="btn btn-dark" type="submit" action="" value="Si, borrar." />
+    </form>
+</div>
+
+
+{% endblock %}

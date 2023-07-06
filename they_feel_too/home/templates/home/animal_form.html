@@ -1,0 +1,19 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+<div class="form-wrapper">
+    <form class="form-model" action="" method="post">
+        {% csrf_token %}
+        <table>
+            {{ form.as_ul}}
+        </table>
+        <div>
+            <a class="btn btn-info mb-3" href="{% url 'habitat_list' %}">Gestionar habitats</a>
+        </div>
+
+        <input class="btn btn-dark" type="submit" value="Aceptar" />
+
+    </form>
+</div>
+
+{% endblock %}
